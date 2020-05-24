@@ -1,6 +1,5 @@
 <template>
-    <router-view />
+  <router-view />
 </template>
 
-<style src="./assets/styles/global.scss" lang="scss">
-</style>
+<style src="./assets/styles/global.scss" lang="scss"></style>
