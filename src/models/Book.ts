@@ -25,4 +25,17 @@ export default class Book extends BookDTO {
     super();
     Object.assign(this, dto);
   }
+
+  getLink() {
+    return `books/${this.slug}`;
+  }
+
+  getShortSypnosis() {
+    return `${this.synopsis.substring(0, 200)}...`;
+  }
+
+  getFullSypnosis() {
+    const paragraphs = this.synopsis.split("\n");
+    return paragraphs;
+  }
 }

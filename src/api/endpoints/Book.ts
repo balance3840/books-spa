@@ -8,4 +8,11 @@ export abstract class BookEndpoints {
     const response = await this.api.get("http://localhost:3000/books");
     return response.data.books.map((bookDto: BookDTO) => new Book(bookDto));
   }
+
+  static async getBook(slug: string): Promise<Book> {
+    const response = await this.api.get(`http://localhost:3000/books/${slug}`);
+    const bookDto: BookDTO = response.data;
+    const book = new Book(bookDto);
+    return book;
+  }
 }

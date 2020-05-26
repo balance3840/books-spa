@@ -1,0 +1,178 @@
+@import "variables"; 
+
+.page {
+  background-color: $background;
+
+  .container {
+    max-width: $container-width;
+  }
+
+  .book-link,
+  &:hover {
+    text-decoration: none;
+  }
+
+  .btn {
+    border-radius: $size1;
+    &.btn-primary {
+      background-color: $primary-color;
+      border-color: $primary-color;
+
+      &:not(:disabled):not(.disabled):hover,
+      &:not(:disabled):not(.disabled):active,
+      &:not(:disabled):not(.disabled):focus {
+        background-color: $primary-color;
+        border-color: $primary-color;
+      }
+    }
+
+    &.btn-outline-primary {
+      border-color: $primary-color;
+      color: $primary-color;
+      font-weight: bold;
+      border-width: 0.1em;
+
+      &:not(:disabled):not(.disabled):hover,
+      &:not(:disabled):not(.disabled):active,
+      &:not(:disabled):not(.disabled):focus {
+        border-color: $primary-color;
+        color: $primary-color;
+        background-color: unset;
+      }
+    }
+  }
+
+  .header-title {
+    color: $primary-color;
+    font-weight: bold;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: $size3;
+  }
+
+  .not-found-page {
+    margin-top: $size4;
+    padding: $size4;
+    background: $white;
+    box-shadow: $shadow;
+    .error-message {
+      color: $secondary-color;
+      font-weight: bold;
+      display: inline;
+      margin-right: $size1;
+    }
+    .error-action {
+      width: fit-content;
+      margin-top: $size3;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+
+
+  .books-list {
+    box-shadow: $shadow;
+    padding-bottom: $size1;
+
+    .book-row {
+      .book-item {
+        padding: $size4;
+
+        .book-container {
+          display: flex;
+          .book-detail {
+            margin-right: $size3;
+            .book-title {
+              color: $secondary-color;
+              font-weight: bold;
+              display: inline;
+              margin-right: $size1;
+            }
+            .book-rating {
+              display: inline;
+            }
+            .book-author {
+              display: block;
+              font-style: italic;
+              margin-top: $size3;
+              margin-bottom: $size3;
+            }
+            .book-upvote {
+              button {
+                margin-right: $size3;
+              }
+            }
+          }
+          .book-cover {
+            img {
+              width: 100%;
+              max-width: 333px;
+              border-radius: $size1;
+              box-shadow: $shadow;
+            }
+          }
+        }
+      }
+    }
+
+    .book-row:nth-child(odd) {
+      .book-item {
+        background: $white;
+      }
+    }
+  }
+
+  .book-detail-page {
+    .book-container {
+      background: $white;
+      padding: $size1;
+      min-height: 100vh;
+      .book-header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: $size3;
+
+        .title {
+          color: $secondary-color;
+          font-weight: bold;
+          margin: 0;
+          max-width: 70%;
+        }
+
+        .book-upvote {
+          .upvote-number {
+            margin-right: $size1;
+            font-size: 0.8em;
+          }
+        }
+      }
+      .book-author {
+        display: block;
+        font-style: italic;
+      }
+      .book-cover {
+        width: fit-content;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: $size3;
+        margin-bottom: $size3;
+        img {
+          border-radius: $size1;
+          box-shadow: $shadow;
+        }
+      }
+      .section-title {
+        font-weight: bold;
+      }
+      .synopsis {
+        margin-top: $size2;
+      }
+      .rating {
+        margin-bottom: $size3;
+        font-weight: bold;
+      }
+    }
+  }
+}
