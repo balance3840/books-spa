@@ -1,4 +1,4 @@
-# reedsy-challenge
+# Books SPA
 
 ## Project setup
 ```
