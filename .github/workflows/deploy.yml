@@ -1,0 +1,29 @@
+on:
+  push:
+    branches: [master]
+
+env:
+  NODE_VERSION: '12.x'
+  IMAGE_NAME: balance3840/book-spa
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+    - name: npm install and build
+      run: |
+        npm install
+        npm run build
+    - uses: azure/docker-login@v1
+      with:
+       username: ${{ secrets.REGISTRY_USERNAME }}
+       password: ${{ secrets.REGISTRY_PASSWORD }}
+       run: |
+        docker build -t ${{ env.IMAGE_NAME }} .
+        docker build -t ${{ env.IMAGE_NAME }} .
