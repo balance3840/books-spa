@@ -16,14 +16,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ env.NODE_VERSION }}
-    - name: npm install and build
+    - name: npm install, build and docker push
       run: |
         npm install
         npm run build
-    - uses: azure/docker-login@v1
-      with:
-       username: ${{ secrets.REGISTRY_USERNAME }}
-       password: ${{ secrets.REGISTRY_PASSWORD }}
-       run: |
+        docker login --username ${{ secrets.REGISTRY_USERNAME }} --password ${{ secrets.REGISTRY_PASSWORD }}
         docker build -t ${{ env.IMAGE_NAME }} .
         docker build -t ${{ env.IMAGE_NAME }} .
